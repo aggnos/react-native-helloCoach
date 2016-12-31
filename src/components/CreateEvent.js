@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, TouchableHighlight } from 'react-native';
 
-export default class AddTodo extends Component {
+export default class CreateEvent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-	    text: ''
+	    category: ''
 	};
-        this.handleTextChange = this.handleTextChange.bind(this);
-    }
 
-    handleTextChange(text) {
-        this.setState({text});
     }
 
     render() {
 
         return (
 		<View>
-	        <TextInput
-	    onChangeText={ this.handleTextChange }
-	    value={ this.state.text || '' }
-	        />
+	        <TextInput/>
+		<TouchableHighlight onPress={this.handleAddButton().bind(this)}>
+		<Text> Add this event </Text>
+		</TouchableHighlight>
 		</View>
 	);
     }

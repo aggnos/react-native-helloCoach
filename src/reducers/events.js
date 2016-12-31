@@ -1,9 +1,11 @@
-import {CHOOSE_EVENT_TYPE} from '../actions/actionTypes';
+import {ADD_EVENT} from '../actions/actionTypes';
 
-export const eventsReducer = (state = {}, action) => {
+export default function eventsReducer(state = {}, action) {
     switch(action.type) {
-    case 'CHOOSE_EVENT_TYPE':
-	return state;
+    case 'ADD_EVENT':
+	console.log(action.category)
+	
+	return [...state, {category: action.category}];
     
     default:
 	return state;

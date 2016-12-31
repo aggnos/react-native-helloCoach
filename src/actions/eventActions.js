@@ -1,8 +1,12 @@
-import {CHOOSE_EVENT_TYPE} from './actionTypes';
+import {ADD_EVENT} from './actionTypes';
 
-export function chooseEventType(eventType){
+const defState = {
+
+}
+
+export function addEvent(category){
     return {
-	type: CHOOSE_EVENT_TYPE,
-	eventType
+	type: ADD_EVENT,
+	category
     };
 };
