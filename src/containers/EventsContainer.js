@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
 	onButtonPress: () => {
+	    console.log(this.state)
 	    dispatch( navigatePush('DetailsContainer') )
 	},
 	createEventButton: () => {

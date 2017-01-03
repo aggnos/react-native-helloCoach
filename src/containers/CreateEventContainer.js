@@ -1,58 +1,31 @@
-import React, { Component } from 'react';
-// import {
-//     View,
-//     ScrollView,
-// } from 'react-native';
+import React, {PropTypes, Component } from 'react';
+import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import { addEvent } from '../actions/eventActions';
+import * as eventActions from '../actions/eventActions';
 import CreateEvent from '../components/CreateEvent';
 
-// export default class CreateEventContainer extends Component {
-//     constructor(props) {
-//         super(props);
-//     }
-//     render() {
-//         return (
-// 		<View>
 
-// 	        <ScrollView horizontal={false}>
-// 	        <CreateEvent />
-// 	        </ScrollView>
-// 		</View>
-// 	);
-//     }
-// }
+class CreateEventContainer extends Component {
+    constructor(props) {
+	super(props);
+    }
 
-// function  mapStateToProps(state) {
-//     return {
-// 	text: state.text
-//     };
-// }
-
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         handleTextChange: (text) => {
-// 	    dispatch(chooseEventType(text));
-// 	    console.log(text)
-// 	}
-//     };
-// };
-
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(CreateEvent);
-
-
+    render() {
+	let { eventsState, actions} = this.props
+	return (
+		<CreateEvent eventsState={eventsState}
+	    {...actions} />
+	);
+    }
+}
 
 export default connect(
-    (state) => ({
-	category: state.category
+    state => ({
+	eventsState: state.eventsState
     }),
     (dispatch) => ({
-	handleAddButtonAction: (ctg) => {
-	    dispatch(addEvent(ctg));
-	}
+	actions: bindActionCreators(eventActions, dispatch)
     })
-)(CreateEvent);
+)(CreateEventContainer);
+
+

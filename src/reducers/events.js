@@ -1,12 +1,15 @@
-import {ADD_EVENT} from '../actions/actionTypes';
+import * as types from '../actions/actionTypes';
 
-export default function eventsReducer(state = {}, action) {
+const initialEventsState = {
+    event: 0
+};
+
+export function eventsState(state = initialEventsState , action) {
     switch(action.type) {
-    case 'ADD_EVENT':
-	console.log(action.category)
-	
-	return [...state, {category: action.category}];
-    
+    case 'INCREMENT':
+	console.log("This is state.event: =>")
+	console.log(state.event)
+	return {...state, event: state.event + 1};
     default:
 	return state;
     }

@@ -12,7 +12,7 @@ const {
     CardStack: NavigationCardStack,
     Card: NavigationCard,
     Header: NavigationHeader
-} = NavigationExperimental
+} = NavigationExperimental;
 
 
 class AppContainer extends Component {
@@ -20,7 +20,6 @@ class AppContainer extends Component {
 	let { navigationState, backAction } = this.props
 
 	return (
-
 		<NavigationCardStack
 	    navigationState={navigationState}
 	    onNavigateBack={backAction}
@@ -49,7 +48,7 @@ class AppContainer extends Component {
 	case 'DetailsContainer':
 	    return <DetailsContainer />;
 	case 'CreateEventContainer':
-	    return <CreateEventContainer />;
+	return <CreateEventContainer />;
 	}
     }
 }
